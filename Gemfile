@@ -7,7 +7,7 @@ gem "tamarama", ">= 0.1.0", "< 0.2.0"
 gem 'sinatra'
 gem 'pg'
 gem "reform"#, path: "../reform"
-gem "trailblazer", ">= 2.1.0.beta1"#, "< 2.1.0"
+gem "trailblazer", "> 2.1.0.beta1"#, "< 2.1.0"
 # gem "trailblazer", path: "../trailblazer"
 gem "trailblazer-loader", ">= 0.1.2" #path: "../trailblazer-loader"
 gem "trailblazer-cells"
@@ -33,8 +33,7 @@ group :development, :test do
   gem "minitest"
   gem "minitest-line"
 
-  gem "trailblazer-test", github: "trailblazer/trailblazer-test"
-  # gem "trailblazer-test", path: "../trailblazer-test"
+  gem "trailblazer-test", github: "emaglio/trailblazer-test", branch: 'trb_2_1_new_call_api'
 end
 
 gem "capistrano", "3.8.2"
