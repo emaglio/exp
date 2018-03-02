@@ -35,7 +35,7 @@ Money.add_rate("IDR", "SGD", 0.00016) # Not a fan of this API.
 Money.add_rate("CAD", "SGD", 1.05) # Not a fan of this API.
 
 Reform::Form.class_eval do
-  include Reform::Form::Dry
+  feature Reform::Form::Dry
 end
 
 module Exp
@@ -101,6 +101,35 @@ module Exp
     get "/claims/:id/rezip" do
       Claim::Endpoint.rezip( params: params, sinatra: self )
     end
+
+    get "/users/new" do
+      ::Endpoint::HTML.(User::Create::Present, params, User::Cell::New, :new)
+    end
+
+    post "/users" do
+      ::Endpoint::HTML.(User::Create, params, User::Cell::New, :create) { |result| return redirect("/users/#{result[:model].id}") }
+    end
+
+    get "/users" do
+      ::Endpoint::HTML.(User::Index, params, User::Cell::Index, :show)
+    end
+
+    get "/users/:id" do
+      ::Endpoint::HTML.(User::Show, params, User::Cell::Row, :show)
+    end
+
+    get "/users/edit/:id" do
+      ::Endpoint::HTML.(User::Update::Present, params, User::Cell::Edit, :edit)
+    end
+
+    post "/users/:id" do
+      ::Endpoint::HTML.(User::Update, params, User::Cell::Edit, :update) { |result| return redirect("/users/#{result[:model].id}") }
+    end
+
+    get "/users/delete/:id" do
+      ::Endpoint::HTML.(User::Delete, params, User::Cell::Row, :delete) { |result| return redirect("/users/new") }
+    end
+
 
     # FIXME: security?
     get "/debug/:id" do

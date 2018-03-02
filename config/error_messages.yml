@@ -1,0 +1,4 @@
+en:
+  errors:
+    unique_user?: An account with this details already exists
+    email?: Wrong format

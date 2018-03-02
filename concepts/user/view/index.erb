@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+          <%= 'Users List' %>
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-8.col-lg-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= cell(User::Cell::Unit, collection: model) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

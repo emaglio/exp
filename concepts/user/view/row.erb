@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+          <%= user.fullname %>
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-8.col-lg-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4 class='strong'><%= 'Email: ' %></h4>
+          <%= user.email %>
+        <h4 class='strong'><%= 'Address: ' %></h4>
+          <%= user.full_address %>
+        <h4 class='strong'><%= 'ABN: ' %></h4>
+          <%= user.abn %>
+
+        <div class="row" style="margin-top:10px" >
+          <div class="col-lg-1"><%= edit_link %></div>
+          <%= delete_link %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

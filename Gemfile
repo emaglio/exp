@@ -6,7 +6,7 @@ gem "rake"
 gem "tamarama", ">= 0.1.0", "< 0.2.0"
 gem 'sinatra'
 gem 'pg'
-gem "reform"#, path: "../reform"
+gem "reform", github: 'trailblazer/reform', branch: 'master'
 gem "trailblazer", "> 2.1.0.beta1"#, "< 2.1.0"
 # gem "trailblazer", path: "../trailblazer"
 gem "trailblazer-loader", ">= 0.1.2" #path: "../trailblazer-loader"
@@ -28,7 +28,7 @@ gem "rubyzip"
 group :development, :test do
   gem "rack-test"
   # gem "match_json"
-  gem 'database_cleaner'
+  gem "database_cleaner"
 
   gem "minitest"
   gem "minitest-line"
